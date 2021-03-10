@@ -1,3 +1,3 @@
 # webdevelopmentbasics
 
-These are projects from my web developmet basic class
+These are projects and examples from my web developmet basic class.  The examples will end with -example
