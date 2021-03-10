@@ -1,0 +1,35 @@
+body{
+  background-color: #fde5be ;
+}
+
+header aside{
+  float: right;
+  background-color: white;
+  color: black;
+  margin: .25rem;
+  padding: .25rem;
+}
+header aside h3{
+  display:inline;
+}
+
+header, article section h2{
+  color:white;
+  padding-left:.25rem;
+}
+header h2, article section h2{
+  padding-bottom: .25rem;
+}
+header{
+  background-color: darkblue;
+}
+article section h2{
+  background-color: purple;
+}
+
+sup a{
+  color:white;
+  text-decoration: none;
+}
+
+sup a:hover {text-decoration: underline;}

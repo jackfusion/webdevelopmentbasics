@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Ken DeWitt">
+  <meta name="keywords" content="html,tutorial,tags,web">
+  <meta name="description" content="HTML tags Tutorials">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1><u><b><i>Miles Per Gallon / <abbr>MPG</abbr></i></b></u></h1>
+
+  The purpose of this program is to calculate how many miles per gallon a person can get with their vehicle. The program
+  starts by asking two questions.
+
+  How many miles are on your trip odometer?
+
+  How many gallons did it take to fill the vehicle?
+
+  There is also another check to make sure the value entered for both miles and gallons is greater than zero. The
+  program also confirms if you would like to continue and if you do not continue the program then calculates the miles
+  per gallon with all the enters.
+
+  Based on the assignments this is from we are to
+  <blockquote> "Use a loop to repeatedly ask the user to enter a miles
+    value and a
+    gallons value. Within the loop, accumulate miles and gallons separately. The algorithm should generate a display
+    of
+    prompts, inputs, and final output that looks like this:""
+
+    <p>"Sample session:</p>
+
+    Do you want to calculate miles per gallon? (y/n): y<br>
+    Enter miles: 35 <br>
+    Enter gallons: 1 <br>
+    Do you want to continue? (y/n): y <br>
+    Enter miles: 36 <br>
+    Enter gallons: 1 <br>
+    Do you want to continue? (y/n): n <br>
+    <br>
+    Overall MPG = 35.5"<br>
+
+    "Provide a graceful response if the total gallons equals zero.<sup>1</sup>"
+  </blockquote>
+  <cite>
+    1. <a
+      href="https://robertson.brightspace.com/d2l/le/content/20473/viewContent/392524/View">https://robertson.brightspace.com/d2l/le/content/20473/viewContent/392524/View</a>
+  </cite>
+  <pre>
+  <code>
+    
+  PROGRAM MilesPreGallon
+
+    SET calculate <- INPUT "Do want to calculate miles pre gallon? (y/n):"
+
+    SET <var>miles</var> <- 0
+    SET <var>totalMiles</var> <- 0
+
+    SET <var>gallons</var> <- 0
+    SET <var>totalGallons</var> <- 0
+
+    WHILE continue is equal to 'y'
+
+        miles <- INPUT "How many miles are on the trip odometer?"
+
+        WHILE miles is less then 0
+            miles <- INPUT "Incorrect data. Please, re-enter."
+        ENDWHILE
+
+        gallons <- INPUT "How many gallons did it take to fill the vehicle?"
+
+        WHILE gallons is less then 1
+            miles <- INPUT "Please enter gallons more than 0"
+        ENDWHILE        
+
+        continue <- INPUT "Do you wish to contiue? (y/n):"
+
+        INCREMENT totalMiles BY miles
+        INCREMENT totalGallons BY gallons
+        totalMiles <- totalMiles + miles
+        
+        
+    ENDWHILE
+
+    IF totalGallons is not equal to 0
+      PRINT "Overall MPG = " + ( totalMiles / totalGallons )
+    ENDIF
+    PRINT "Have a nice day"
+  END
+  </code>
+</pre>
+
+</body>
+
+</html>
