@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      font-family: Garamond, serif;
+      background-color: lavender;
+      color: navy;
+    }
+    h1{
+      font-family: Papyrus, fantasy;
+      font-size: 36px;
+    }
+    .table{
+      display:table;
+      display:flex;
+      align-items:flex-start;
+    }
+    .cell {display:table-cell;}
+    nav > * {
+      display:block;
+      margin: 18px 25px 18px 0;
+    }
+    a > img {
+      width: 120px;
+      height: 80px;
+    }
+    iframe {border:none; overflow:hidden;}
+  </style>
+</head>
+<body>
+  <h1>Moular house Exhibit, Park University's Graphic Design Program</h1>
+  <h3>Click the thumbnail at the left in order to move it to the viewing frame at the right.</h3>
+  <div class="table">
+    <nav class="cell">
+      <a href="kitchen.jpg" target="full-size"><img src="kitchen.jpg" alt="kitchen"></a>
+      <a href="living.jpg" target="full-size"><img src="living.jpg" alt="Living room"></a>
+      <a href="stairs.jpg" target="full-size"><img src="stairs.jpg" alt="stair case"></a>
+    </nav>
+    <iframe name="full-size" width="480" height="320" src="kitchen.jpg" frameborder="0" class="cell"></iframe>
+  </div>
+  </body>
+</html>
