@@ -1,0 +1,25 @@
+header{text-align:center;}
+.table{display:table}
+.cell{
+  display:table-cell;
+  padding: 0px 10px 10px;
+}
+nav.cell{width:80px;}
+/* Avoid yellow background at left extending above the pages's main content. */
+.cell > :nth-child(1) {margin-top: 0;}
+nav {
+  color: darkred;
+  background-color: lemonchiffon;
+}
+.nav-heading{
+  background-color: gold;
+}
+/* Adjust link appearances. */
+a{
+  text-decoration: none;
+  font-family: Tahoma, Geneva, sans-serif;
+  text-decoration: underline;
+}
+a:hover{text-decoration: underline;}
+nav a {font-size: .8em;}
+nav > * {margin: 1em 0;}
