@@ -1,0 +1,24 @@
+.colorsize {
+  font-size: 40px;
+  color: rgb(5, 110, 248);
+}
+
+.diagonal {
+  transform: rotate(-45deg);
+}
+
+span {
+  display: table-cell;
+  /* border: 1px solid; */
+  text-align: center;
+  color: red;
+  padding: 10px;
+}
+
+div {
+  display: table-row;
+}
+
+input[type=text] {
+  width: 16px;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compass Game</title>
+  <link rel="stylesheet" href="compass.css">
+  <script>
+    // this function gets the form data and displays in the compass
+    function updatePosition(form) {
+      document.getElementById('top').innerHTML = form.elements["topForm"].value;
+      document.getElementById('right').innerHTML = form.elements["rightForm"].value;
+      document.getElementById('left').innerHTML = form.elements["leftForm"].value;
+      document.getElementById('bottom').innerHTML = form.elements["bottomForm"].value;
+    }
+    // This function changes the location of the left and top ooptions of the compass
+    function changeTopPosition() {
+      let direction = document.getElementById('left').innerHTML;
+      document.getElementById('left').innerHTML = document.getElementById('top').innerHTML;
+      document.getElementById('top').innerHTML = direction;
+    }
+    // This function change the location of the right and left options on the compass
+    function changeMiddlePosition() {
+      let direction = document.getElementById('left').innerHTML;
+      document.getElementById('left').innerHTML = document.getElementById('right').innerHTML;
+      document.getElementById('right').innerHTML = direction;
+    }
+    //This function changes the right and bottom options on the compass
+    function changeBottomPosition() {
+      let direction = document.getElementById('bottom').innerHTML;
+      document.getElementById('bottom').innerHTML = document.getElementById('right').innerHTML;
+      document.getElementById('right').innerHTML = direction;
+    }
+    // This function enables the text areas and update button on the form as well it clears the compass
+    function restart() {
+      document.getElementById('top').innerHTML = '';
+      document.getElementById('right').innerHTML = '';
+      document.getElementById('left').innerHTML = '';
+      document.getElementById('bottom').innerHTML = '';
+      document.getElementById('topForm').disabled = false;
+      document.getElementById('leftForm').disabled = false;
+      document.getElementById('rightForm').disabled = false;
+      document.getElementById('bottomForm').disabled = false;
+      document.getElementById('updateForm').disabled = false;
+    }
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <p>
+      This web page uses JavaScript. For proper results,
+      you must use a web browser with JavaScript enabled.
+    </p>
+  </noscript>
+  <h1>Compass Game</h1>
+  <p>
+    Compass Game The letters on the "compass" are scrambled. Press the arrows to properlt position the direction
+    letters.
+  </p>
+  <div>
+    <span><input type="button" value="&#10231" class="colorsize diagonal" onClick="changeTopPosition();"></span><span>
+      <h1 id="top">E</h1>
+    </span>
+  </div>
+  <div>
+    <span>
+      <h1 id="left">S</h1>
+    </span><span><button class="colorsize" onClick="changeMiddlePosition();">&#10231</button></span><span>
+      <h1 id="right">N</h1>
+    </span>
+  </div>
+  <div>
+    <span></span><span>
+      <h1 id="bottom">W</h1>
+    </span><span><button class="colorsize diagonal" onClick="changeBottomPosition();">&#10231</button></span>
+  </div>
+  <button onClick="restart();">Restart</button>
+  <p>
+    To restart the game, press <i>Restart</i>, enter N, S, E, and W in any order in the boxes below, and the press
+    <i>Update</i>.
+    <form>
+      Top: <input type="text" id="topForm" name="Top" maxlength="1" disabled>
+      Left: <input type="text" id="leftForm" name="Left" maxlength="1" disabled>
+      Right: <input type="text" id="rightForm" name="Right" maxlength="1" disabled>
+      Bottom: <input type="text" id="bottomForm" name="Bottom" maxlength="1" disabled>
+      <br><br>
+      <input type="button" value="Update" id="updateForm" onclick="updatePosition(this.form);" disabled>
+    </form>
+  </p>
+</body>
+
+</html>

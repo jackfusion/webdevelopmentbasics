@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generate Email</title>
+  <script>
+    // This Function gerantes an email address.
+    function generateEmail(form) {
+      document.getElementById("email").innerHTML = form.elements["first"].value + "." + form.elements["last"].value + "@park.edu";
+      form.reset();
+      form.elements["first"].focus();
+      form.elements["last"].disabled = true;
+    }// end generateEmail
+  </script>
+</head>
+<body>
+  <h3>Enter your first and last names and then click the button.</h3>
+  <form>
+    First Name: <input type="text" id="first" size="15" autofocus onChange = "this.form.elements['last'].disabled=false;"><br>
+    Last Name: <input type="text" id="last" size="15" disabled><br><br>
+    <input type="button" value="Generate Email" onClick="generateEmail(this.form);">
+  </form>
+  <p id="email"></p>
+</body>
+</html>
