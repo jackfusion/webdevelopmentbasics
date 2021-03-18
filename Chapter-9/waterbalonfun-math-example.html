@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Ballon Fun!</title>
+  <style>
+    html {
+      display: flex;
+      justify-content: center;
+    }
+
+    .table {
+      display: table;
+      border-spacing: 10px;
+    }
+
+    .row {
+      display: table-row;
+    }
+
+    .row>* {
+      display: table-cell;
+      font-size: 2em;
+    }
+
+    .row> :first-child {
+      text-align: right;
+    }
+
+    .top {
+      font-size: 4em;
+      text-align: center;
+    }
+
+    .bottom {
+      text-align: center;
+    }
+
+    .bottom>* {
+      font-size: 2em;
+    }
+
+    input:valid{background-color:lightgreen;}
+    input:invalid{background: rgb(255, 220, 220);}
+  </style>
+  <script>
+    // This function calculates and displays the total water
+    // needed to fill up water ballons.
+
+    function calculateWater(form) {
+      const CUBIC_INCHES_PRE_GALLON = 231;
+      let qty; //number of ballons
+      let diameter; // ballon diameter (in inches)
+      let gallons; // total gallons of water needed
+      let qtyBox, diameterBox; //text controls
+      let totalWater;
+
+      qtyBox = form.elements["qty"];
+      diameterBox = form.elements["diameter"];
+      totalWater = form.elements["total-water"];
+
+      if (!form.checkValidity()) {
+        totalWater.value = "";
+        if (!qtyBox.checkValidity() && diameterBox.checkValidity()) {
+          alert("Invalid quantity value. Please reenter.");
+        }
+        else if (!diameterBox.checkValidity() && qtyBox.checkValidity()) {
+          alert("Invalid diameter value. Please reenter.");
+        } else if (!diameterBox.checkValidity() && !qtyBox.checkValidity()) {
+          alert("Invalid quantity and diameter values. Please reenter.");
+        }
+      } else {
+        qty = qtyBox.valueAsNumber;
+        diameter = diameterBox.valueAsNumber;
+
+        if ((qty == 0) || (diameter == 0)){
+          totalWater.value = "No water needed.";
+        } else {
+          gallons = qty * (4 / 3 * Math.PI * Math.pow(diameter / 2, 3) / CUBIC_INCHES_PRE_GALLON);
+          totalWater.value = "Gallons of water needed to fill up the ballons = " + gallons.toFixed(1);
+        }
+      }// end else
+    } // end calculateWater
+  </script>
+</head>
+
+<body>
+  <h1 class="top">Water Ballon Fun!</h1>
+  <form class="table" id="myForm">
+    <div class="row">
+      <label for="qty">Number of spherical water ballons:</label>
+      <input type="number" id="qty" min="0" max="99" step="1" required>
+    </div>
+    <div class="row">
+      <label for="diameter">Diameter of each ballon in inches:</label>
+      <input type="number" id="diameter" min="0" max="12" step=".01" required>
+    </div>
+  </form>
+  <br>
+  <div class="bottom">
+    <input type="button" form="myForm" value="Calculate water" onClick="calculateWater(this.form);">
+    <br><br>
+    <output id="total-water" form="myForm"></output>
+  </div>
+</body>
+
+</html>
