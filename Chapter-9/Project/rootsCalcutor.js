@@ -38,7 +38,7 @@
     <label for="c">c:</label>
     <input type="number" id="c" name="c" min="-99" max="99" onfocus="validate(this)" oninput="validate(this)">
 
-    <p><input type="button" id="solutionSubmit" value="Calculate roots" onClick="calculateRoots();"></p>
+    <p><input type="button" id="solutionSubmit" value="Calculate roots" onClick="calculateRoots(this.form);"></p>
   </form>
   <p id="answers"></p>
   <script src="rootsCal.js" type=text/javascript> </script> </body> </html>
